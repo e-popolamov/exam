@@ -11,6 +11,7 @@ class Product < ApplicationRecord
               maximum: 5
             }
   validate :exclude_dog?
+
   private
 
   def exclude_dog?
