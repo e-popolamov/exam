@@ -1,0 +1,64 @@
+require:
+  - rubocop-rails
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'config.ru'
+    - 'config/*.rb'
+    - 'config/**/*.rb'
+    - 'db/*.rb'
+    - 'db/**/*.rb'
+    - 'spec/*.rb'
+    - 'spec/**/*.rb'
+    - 'test/*.rb'
+    - 'test/**/*.rb'
+    - 'bin/*'
+    - 'vendor/**/*'
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/Validation:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 40
+
+Metrics/BlockLength:
+  Max: 40
+
+Style/MissingRespondToMissing:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
