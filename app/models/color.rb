@@ -5,11 +5,32 @@ class Color < ApplicationRecord
   has_many :products, through: :product_colors
 
   validates_presence_of :name
+  validate :exclude_dog?
 
-  COLOR_LIST = [
-    { name: :black, value: '#000000' },
-    { name: :green, value: '#008000' },
-    { name: :silver, value: '#c0c0c0' },
-    { name: :white, value: '#ffffff' }
-  ].freeze
+  def name
+    read_attribute(:name).to_sym
+  end
+
+  def name=(value)
+    write_attribute(:name, value.to_s)
+  end
+
+  HEX_VALUES = {
+    black: '#000000',
+    green: '#008000',
+    silver: '#c0c0c0',
+    white: '#ffffff'
+  }.freeze
+
+  def hex
+    HEX_VALUES[name]
+  end
+
+  private
+
+  def exclude_dog?
+    return true unless name.present? && name.downcase.include?('dog')
+
+    errors.add(:name, "must not include the word 'dog'")
+  end
 end

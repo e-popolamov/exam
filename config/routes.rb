@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     get '/', to: 'product#index'
     get '/:id', to: 'product#show'
     get '/search/:name', to: 'product#search'
-    # add route for union
+    post 'union_colors', to: 'product#union_colors'
   end
   scope 'colors' do
-    # add route for colors
+    post 'union_product', to: 'colors#union_product'
   end
 end
