@@ -10,4 +10,12 @@ class Product < ApplicationRecord
               minimum: 3,
               maximum: 5
             }
+  validate :exclude_dog?
+  private
+
+  def exclude_dog?
+    return true unless name.present? && name.downcase.include?('dog')
+
+    errors.add(:name, "must not include the word 'dog'")
+  end
 end

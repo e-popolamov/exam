@@ -5,7 +5,6 @@ class Color < ApplicationRecord
   has_many :products, through: :product_colors
 
   validates_presence_of :name
-  validate :exclude_dog?
 
   def name
     read_attribute(:name).to_sym
@@ -24,13 +23,5 @@ class Color < ApplicationRecord
 
   def hex
     HEX_VALUES[name]
-  end
-
-  private
-
-  def exclude_dog?
-    return true unless name.present? && name.downcase.include?('dog')
-
-    errors.add(:name, "must not include the word 'dog'")
   end
 end
